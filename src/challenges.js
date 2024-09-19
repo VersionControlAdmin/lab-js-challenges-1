@@ -79,12 +79,13 @@ const duplicateWords = [
 
 function uniquifyArray(wordArray) {
   if (wordArray.length === 0) return null;
-  let duplicates = [];
-  wordArray.forEach(function(element, index) {
-    if(index !== wordArray.indexOf(element)) duplicates.push(element);
-  } )
-  console.log(duplicates);
-  return filterOut(wordArray,duplicates).concat(duplicates);
+  return [...new Set(wordArray)];
+  // let duplicates = [];
+  // wordArray.forEach(function(element, index) {
+  //   if(index !== wordArray.indexOf(element)) duplicates.push(element);
+  // } )
+  // console.log(duplicates);
+  // return filterOut(wordArray,duplicates).concat([...new Set(duplicates)]); //makes sure duplicates are added back once and not more than once.
 }
 
 console.log(uniquifyArray(duplicateWords));
